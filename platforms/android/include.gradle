@@ -1,0 +1,52 @@
+
+android {
+  productFlavors {
+    "nativescript-social-login" {
+      dimension "nativescript-social-login"
+    }
+  }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        // classpath 'com.android.tools.build:gradle:2.1.0'
+        // classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    def googlePlayServicesVersion = project.hasProperty('googlePlayServicesVersion') ? project.googlePlayServicesVersion : '10.2.6'
+    compile "com.google.android.gms:play-services-auth:$googlePlayServicesVersion"
+
+    def facebookSDKVersion = project.hasProperty('facebookSDKVersion') ? project.facebookSDKVersion : '[4, 5)'
+    // https://github.com/mkloubert/nativescript-social-login/issues/32#issue-285587592
+    compile ("com.facebook.android:facebook-login:$facebookSDKVersion"){
+        exclude group: 'com.google.zxing'
+    }
+
+    // compile('com.twitter.sdk.android:twitter:1.13.2@aar') {
+    //     transitive = true
+    // }
+
+    // https://stackoverflow.com/a/43272992/8236404
+    def supportVersion = project.hasProperty('supportVersion') ? project.supportVersion : '26.1.0'
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion supportVersion
+                }
+            }
+        }
+    }
+}
