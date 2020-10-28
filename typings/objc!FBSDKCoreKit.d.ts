@@ -266,7 +266,7 @@ declare class FBSDKApplicationDelegate extends NSObject {
 
 	static new(): FBSDKApplicationDelegate; // inherited from NSObject
 
-	static sharedInstance(): FBSDKApplicationDelegate;
+	static shared: FBSDKApplicationDelegate;
 
 	applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary<any, any>): boolean;
 

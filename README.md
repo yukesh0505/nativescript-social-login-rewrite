@@ -165,22 +165,22 @@ if (application.ios) {
 
       try {
         const errorRef = new interop.Reference();
-        GGLContext.sharedInstance().configureWithError(errorRef);
+        GGLContext.shared.configureWithError(errorRef);
 
-        const signIn = GIDSignIn.sharedInstance();
+        const signIn = GIDSignIn.shared;
         gglDelegate = true;
       } catch (error) {
         console.log(error);
       }
 
-      const fcbDelegate = FBSDKApplicationDelegate.sharedInstance().applicationDidFinishLaunchingWithOptions(application, launchOptions); // facebook login delegate
+      const fcbDelegate = FBSDKApplicationDelegate.shared.applicationDidFinishLaunchingWithOptions(application, launchOptions); // facebook login delegate
 
       return gglDelegate || fcbDelegate;
     }
 
     applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation) {
-      const fcbDelegate = FBSDKApplicationDelegate.sharedInstance().applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation); // facebook login delegate
-      const gglDelegate = GIDSignIn.sharedInstance().handleURLSourceApplicationAnnotation(url, sourceApplication, annotation); // google login delegate
+      const fcbDelegate = FBSDKApplicationDelegate.shared.applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation); // facebook login delegate
+      const gglDelegate = GIDSignIn.shared.handleURLSourceApplicationAnnotation(url, sourceApplication, annotation); // google login delegate
 
       return fcbDelegate || gglDelegate;
     }
@@ -203,19 +203,19 @@ if (application.ios) {
             var gglDelegate = false;
             try {
                 var errorRef = new interop.Reference();
-                GGLContext.sharedInstance().configureWithError(errorRef);
-                var signIn = GIDSignIn.sharedInstance();
+                GGLContext.shared.configureWithError(errorRef);
+                var signIn = GIDSignIn.shared;
                 gglDelegate = true;
             }
             catch (error) {
                 console.log(error);
             }
-            var fcbDelegate = FBSDKApplicationDelegate.sharedInstance().applicationDidFinishLaunchingWithOptions(application, launchOptions); // facebook login delegate
+            var fcbDelegate = FBSDKApplicationDelegate.shared.applicationDidFinishLaunchingWithOptions(application, launchOptions); // facebook login delegate
             return gglDelegate || fcbDelegate;
         };
         MyDelegate.prototype.applicationOpenURLSourceApplicationAnnotation = function (application, url, sourceApplication, annotation) {
-            var fcbDelegate = FBSDKApplicationDelegate.sharedInstance().applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation); // facebook login delegate
-            var gglDelegate = GIDSignIn.sharedInstance().handleURLSourceApplicationAnnotation(url, sourceApplication, annotation); // google login delegate
+            var fcbDelegate = FBSDKApplicationDelegate.shared.applicationOpenURLSourceApplicationAnnotation(application, url, sourceApplication, annotation); // facebook login delegate
+            var gglDelegate = GIDSignIn.shared.handleURLSourceApplicationAnnotation(url, sourceApplication, annotation); // google login delegate
             return fcbDelegate || gglDelegate;
         };
         return MyDelegate;

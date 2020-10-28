@@ -415,7 +415,7 @@ declare class BFWebViewAppLinkResolver extends NSObject implements BFAppLinkReso
 
 	static new(): BFWebViewAppLinkResolver; // inherited from NSObject
 
-	static sharedInstance(): BFWebViewAppLinkResolver;
+	static shared: BFWebViewAppLinkResolver;
 
 	readonly debugDescription: string; // inherited from NSObjectProtocol
 
