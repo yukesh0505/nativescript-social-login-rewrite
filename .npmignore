@@ -1,0 +1,7 @@
+*.map
+*.ts
+!*.d.ts
+tsconfig.json
+tslint.json
+references.d.ts
+hooks
