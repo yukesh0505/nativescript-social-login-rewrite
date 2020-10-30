@@ -252,7 +252,7 @@ declare var GTMOAuth2VersionNumber: number;
 
 declare var GTMOAuth2VersionString: interop.Reference<number>;
 
-declare class GTMOAuth2ViewControllerTouch extends UIViewController implements UINavigationControllerDelegate, WKWebViewDelegate {
+declare class GTMOAuth2ViewControllerTouch extends UIViewController implements UINavigationControllerDelegate, WKNavigationDelegate {
 
 	static alloc(): GTMOAuth2ViewControllerTouch; // inherited from NSObject
 
@@ -398,13 +398,13 @@ declare class GTMOAuth2ViewControllerTouch extends UIViewController implements U
 
 	systemCookieStorage(): NSHTTPCookieStorage;
 
-	webViewDidFailLoadWithError(webView: WKWebView, error: NSError): void;
+	webViewdidFailNavigation(webView: WKWebView, error: NSError): void;
 
 	webViewDidFinishLoad(webView: WKWebView): void;
 
 	webViewDidStartLoad(webView: WKWebView): void;
 
-	webViewShouldStartLoadWithRequestNavigationType(webView: WKWebView, request: NSURLRequest, navigationType: WKWebViewNavigationType): boolean;
+	webViewShouldStartLoadWithRequestNavigationType(webView: WKWebView, request: NSURLRequest, navigationType: WKNavigation): boolean;
 }
 
 declare var kGTMOAuth2AccessTokenRefreshFailed: string;

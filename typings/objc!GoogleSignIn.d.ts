@@ -90,7 +90,7 @@ declare class GIDSignIn extends NSObject {
 
 	static new(): GIDSignIn; // inherited from NSObject
 
-	static shared: GIDSignIn;
+	static sharedInstance(): GIDSignIn;
 
 	clientID: string;
 
