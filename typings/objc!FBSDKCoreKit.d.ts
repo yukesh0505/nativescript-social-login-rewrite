@@ -260,13 +260,13 @@ declare class FBSDKAppLinkUtility extends NSObject {
 	static new(): FBSDKAppLinkUtility; // inherited from NSObject
 }
 
-declare class FBSDKApplicationDelegate extends NSObject {
+declare class ApplicationDelegate extends NSObject {
 
-	static alloc(): FBSDKApplicationDelegate; // inherited from NSObject
+	static alloc(): ApplicationDelegate; // inherited from NSObject
 
-	static new(): FBSDKApplicationDelegate; // inherited from NSObject
+	static new(): ApplicationDelegate; // inherited from NSObject
 
-	static sharedInstance(): FBSDKApplicationDelegate;
+	static shared: ApplicationDelegate;
 
 	applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary<any, any>): boolean;
 
