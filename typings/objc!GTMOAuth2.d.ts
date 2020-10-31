@@ -400,7 +400,7 @@ declare class GTMOAuth2ViewControllerTouch extends UIViewController implements U
 
 	webViewdidFailNavigation(webView: WKWebView, error: NSError): void;
 
-	webViewDidFinishLoad(webView: WKWebView): void;
+	didFinishNavigation(webView: WKWebView): void;
 
 	webViewDidStartLoad(webView: WKWebView): void;
 
